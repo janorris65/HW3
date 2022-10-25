@@ -92,12 +92,22 @@ const upperCasedCharacters = [
 
 function generatePassword() {
   let num = prompt("How long would you like your password? 8-128 available");
+  let typenum = prompt("Would you like numbers in your password?");
+  let typeupper = prompt("Would you like uppercase letters in your password?");
+  let typelower = prompt("Would you like lowercase letters in your password?");
+  let typesymbols = prompt("Would you like symbols in your password?");
+  const Allarray = lowerCasedCharacters.concat(
+    numericCharacters,
+    specialCharacters,
+    upperCasedCharacters
+  );
+
   let apples = [];
   for (let i = 0; num >= i; i++) {
-    let lettersoutput = lowerCasedCharacters[i % 26];
+    let lettersoutput =
+      Allarray[Math.floor((1 / Math.random()) * (i + 1)) % 85];
     apples.push(lettersoutput);
   }
-
   return apples.join("");
 }
 
