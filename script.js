@@ -91,7 +91,14 @@ const upperCasedCharacters = [
 ];
 
 function generatePassword() {
-  // TODO: Write your code here
+  let num = prompt("How long would you like your password? 8-128 available");
+  let apples = [];
+  for (let i = 0; num >= i; i++) {
+    let lettersoutput = lowerCasedCharacters[i % 26];
+    apples.push(lettersoutput);
+  }
+
+  return apples.join("");
 }
 
 // Write password to the #password input
