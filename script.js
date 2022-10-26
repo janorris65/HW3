@@ -92,20 +92,43 @@ const upperCasedCharacters = [
 
 function generatePassword() {
   let num = prompt("How long would you like your password? 8-128 available");
-  let typenum = prompt("Would you like numbers in your password?");
-  let typeupper = prompt("Would you like uppercase letters in your password?");
-  let typelower = prompt("Would you like lowercase letters in your password?");
-  let typesymbols = prompt("Would you like symbols in your password?");
-  const Allarray = lowerCasedCharacters.concat(
-    numericCharacters,
-    specialCharacters,
-    upperCasedCharacters
+  let typenum = confirm(
+    "Would you like numbers in your password? Ok for Yes, Cancel for No"
   );
+  let typeupper = confirm(
+    "Would you like uppercase letters in your password?Ok for Yes, Cancel for No"
+  );
+  let typelower = confirm(
+    "Would you like lowercase letters in your password? Ok for Yes, Cancel for No"
+  );
+  let typesymbols = confirm(
+    "Would you like symbols in your password? Ok for Yes, Cancel for No"
+  );
+  let x = [];
+  if (typelower === true) {
+    x = lowerCasedCharacters;
+  }
+  let y = [];
+  if (typenum === true) {
+    y = numericCharacters;
+  }
+  let z = [];
+  if (typesymbols === true) {
+    z = specialCharacters;
+  }
+  let p = [];
+  if (typeupper === true) {
+    p = upperCasedCharacters;
+  }
+  const Allarray = x.concat(y, z, p);
 
+  let date = Date.now() % 1000;
+
+  console.log(date);
   let apples = [];
-  for (let i = 0; num >= i; i++) {
+  for (let i = 1; num >= i; i++) {
     let lettersoutput =
-      Allarray[Math.floor((1 / Math.random()) * (i + 1)) % 85];
+      Allarray[(date * Math.floor(Math.random() * (i + 5))) % 85];
     apples.push(lettersoutput);
   }
   return apples.join("");
