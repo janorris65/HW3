@@ -133,7 +133,7 @@ function generatePassword() {
   let apples = [];
   for (let i = 1; num >= i; i++) {
     let lettersoutput =
-      Allarray[(date * Math.floor(Math.random() * (i + 5))) % 85];
+      Allarray[(date * Math.floor(Math.random() * (i + 5))) % Allarray.length];
     apples.push(lettersoutput);
   }
   return apples.join("");
