@@ -104,6 +104,7 @@ function generatePassword() {
   let typesymbols = confirm(
     "Would you like symbols in your password? Ok for Yes, Cancel for No"
   );
+  // These set the conditions for array concat using prompt confirm
   let x = [];
   if (typelower === true) {
     x = lowerCasedCharacters;
@@ -121,10 +122,14 @@ function generatePassword() {
     p = upperCasedCharacters;
   }
   const Allarray = x.concat(y, z, p);
-
+  //correction of effect of using linear "for" loop method to create string array on random generator using "date" and "i+5"
   let date = Date.now() % 1000;
 
   console.log(date);
+
+  if (num < 8 || num > 128) {
+    return "Must be between 8 and 128";
+  }
   let apples = [];
   for (let i = 1; num >= i; i++) {
     let lettersoutput =
