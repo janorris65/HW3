@@ -122,7 +122,7 @@ function generatePassword() {
     p = upperCasedCharacters;
   }
   const Allarray = x.concat(y, z, p);
-  //correction of effect of using linear "for" loop method to create string array on random generator using "date" and "i+5"
+  //Correction of effect of using linear "for" loop method to create string array on random generator using "date" and "i+5"
   let date = Date.now() % 1000;
 
   console.log(date);
